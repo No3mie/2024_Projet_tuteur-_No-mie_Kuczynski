@@ -31,4 +31,11 @@
     * Material flow analysis of the forest-wood supply chain: A consequential approach for log export policies in France (Lenglet et al,. 2017)
     * ISI BOIS novembre 2021
     * + 3 articles qui peuvent faire un point historique
-    * 2 arcicles sur l'exportation du peuplier 
+    * 2 arcicles sur l'exportation du peuplier
+
+ #### 23/04
+ * Réunion sur la récupération des données sur FAO STAT et UN Comtrade
+ * Recherches des codes HS et correspondance de ce qui me sera utile
+ * Début de rédaction de l'intro et du M&M (mot clés, plan)
+ * Poursuite de la bibliographie (mais j'ai pas gardé d'articles intéressant)
+ * Page de garde
