@@ -39,3 +39,10 @@
  * Début de rédaction de l'intro et du M&M (mot clés, plan)
  * Poursuite de la bibliographie (mais j'ai pas gardé d'articles intéressant)
  * Page de garde
+
+#### 24/04
+* création d'un tableau sur le chapitre 44 : Bois, charbon de bois et ouvrages en bois et du sous-chapitre 4403 : bois brute au format excel (possibilité de le mettre dans le rapport si besoin)
+* exploration de la base de données de UN Comtrade et FAO
+-> abandon de FAO car pas de spécialité du chêne 
+* début de rédaction de l'introduction et M&M
+
