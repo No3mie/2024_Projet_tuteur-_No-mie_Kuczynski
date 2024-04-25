@@ -46,3 +46,10 @@
 -> abandon de FAO car pas de spécialité du chêne 
 * début de rédaction de l'introduction et M&M
 
+#### 25/04 
+* Rédaction introcution 
+* Récupération du code pour télécharger les données sur UN Comtrade 
+* Création d'un nouveau fichier avec les donées issus d'UN Comtrade entre 2001 et 2020 
+* Exploration des données 
+
+
