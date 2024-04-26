@@ -47,9 +47,17 @@
 * début de rédaction de l'introduction et M&M
 
 #### 25/04 
+* Tentative pour régler les problèmes de wifi
 * Rédaction introcution 
 * Récupération du code pour télécharger les données sur UN Comtrade 
 * Création d'un nouveau fichier avec les donées issus d'UN Comtrade entre 2001 et 2020 
 * Exploration des données 
+
+#### 26/04
+* Tentative pour régler les problèmes de wifi partie II
+* Rédaction introduction (on est encore sur du squelette, manque de biblio)
+* Point biblio -> manque de biblio récente 
+* Exploration des données
+* Création de nouveaux fichiers pour isoler la France et la Chine et limiter le nombre de colonnes
 
 
