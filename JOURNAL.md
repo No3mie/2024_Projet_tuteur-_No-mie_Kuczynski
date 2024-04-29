@@ -48,7 +48,7 @@
 
 #### 25/04 
 * Tentative pour régler les problèmes de wifi
-* Rédaction introcution 
+* Rédaction introdution 
 * Récupération du code pour télécharger les données sur UN Comtrade 
 * Création d'un nouveau fichier avec les donées issus d'UN Comtrade entre 2001 et 2020 
 * Exploration des données 
@@ -60,4 +60,9 @@
 * Exploration des données
 * Création de nouveaux fichiers pour isoler la France et la Chine et limiter le nombre de colonnes
 
+#### 29/04
+* Rédaction introduction
+* Recherche de biblio 
+* Traitement des données : extraction des données concernant uniquement la Chine et la France 
+* Création d'un nouveau fichier .csv pour analyser les données : "Donnes_France_Chine_2001_2020"
 
