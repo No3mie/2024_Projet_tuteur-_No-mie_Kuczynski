@@ -76,3 +76,4 @@
 #### 03/05
 * biblio : lecture et résumé des 5 articles  (/17)
 * Mise à jour du M&M
+* Test problèmes wifi
