@@ -128,3 +128,5 @@ Data_ChMFr_Oak_20 <- subset(Data_ChM_Oak_20,partenerName == "France")
 
 #Exportation des données
 write.table(Data_ChMFr_Oak_20, "Donnes_China_M_France_2001_2020.csv",sep = ";", row.names = FALSE)
+
+#### BLablaou test test 1 2 3 
