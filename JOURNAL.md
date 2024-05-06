@@ -66,3 +66,8 @@
 * Traitement des données : extraction des données concernant uniquement la Chine et la France 
 * Création d'un nouveau fichier .csv pour analyser les données : "Donnes_France_Chine_2001_2020"
 
+
+#### 06/05 
+* voir tests statistiques
+* recherches sur la Belgique et sur ses exportations et importations de bois
+
