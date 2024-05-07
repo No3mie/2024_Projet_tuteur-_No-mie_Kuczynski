@@ -84,5 +84,6 @@
 * recherches sur la Belgique et sur ses exportations et importations de bois
 
 #### 07/05 
-* Biblio : lecture et résumés 
+* Biblio : lecture et résumés
+* Création de graphiques pour voir l'évolution (barplot) 
 
