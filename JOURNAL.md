@@ -66,8 +66,23 @@
 * Traitement des données : extraction des données concernant uniquement la Chine et la France 
 * Création d'un nouveau fichier .csv pour analyser les données : "Donnes_France_Chine_2001_2020"
 
+#### 30/04
+* biblio : lecture et résumé des 5 articles (/17)
+
+#### 02/05
+* biblio : lecture et résumé des 5 articles (/17)
+* Modification erreur sur récupération des données des exportations de la France et récupération les données mirroirs
+
+#### 03/05
+* biblio : lecture et résumé des 5 articles (/17)
+* Mise à jour du M&M
+* Test problèmes wifi
+ 
 
 #### 06/05 
 * voir tests statistiques
 * recherches sur la Belgique et sur ses exportations et importations de bois
+
+#### 07/05 
+* Biblio : lecture et résumés 
 
