@@ -85,5 +85,9 @@
 
 #### 07/05 
 * Biblio : lecture et résumés
-* Création de graphiques pour voir l'évolution (barplot) 
+* Création de graphiques pour voir l'évolution (barplot)
+
+#### 21/05
+* Poursuite du M&M
+* Tentative de faire un graphique sur l'évolution des imports-exports de la Chine et la France 
 
