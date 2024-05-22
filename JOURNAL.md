@@ -89,5 +89,9 @@
 
 #### 21/05
 * Poursuite du M&M
-* Tentative de faire un graphique sur l'évolution des imports-exports de la Chine et la France 
+* Tentative de faire un graphique sur l'évolution des imports-exports de la Chine et la France
+
+#### 22/05 
+* M&M
+* reprises des données: création de nouvelles tables de données pour traiter les données 
 
