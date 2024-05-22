@@ -19,7 +19,29 @@ str(Donnes_France_X_Chine_2001_2020)
 #legacyEstimationFlag est bien en num
 str(Donnes_China_M_France_2001_2020)
 # primaryValue est num 
+# Mais il manque 2002 
 
+
+###############################################
+# PB : il manque une annee 2002 pour les donnes vennant de la chine 
+# Solution : ajouter une ligne avec juste l'année 2002 pour la colonne Année mais il faut que les données soit quand même en num 
+
+###### Ajouter l'année 2002 aux imports de la Chine 
+Ligne_2002 <- c("2002",156, "China","M",251,"France","H","","FALSE","", "","" , 0, "","" )
+Donnes_China_M_France_2001_2020_av2002 <- rbind(Donnes_China_M_France_2001_2020, Ligne_2002)
+
+###### Ordonner et bien vérifier que les données monétaires soient en num et les années en factor ? 
+Donnes_China_M_France_2001_2020_av2002 <- is.factor( Donnes_China_M_France_2001_2020_av2002$Year)
+str(Donnes_China_M_France_2001_2020_av2002)
+
+Index <- order(Donnes_China_M_France_2001_2020_av2002$Year)
+# c'est l'ordre dans laquelle il faut mettre les lignes du Data China av 2002
+Donnes_China_M_France_2001_2020_av2002 <- data [Index, ]
+
+
+
+##############################################
+#Création graphiques 
 plot(Donnes_France_X_Chine_2001_2020$legacyEstimationFlag)
 barplot(Donnes_France_X_Chine_2001_2020$legacyEstimationFlag)
 barplot(Donnes_France_X_Chine_2001_2020$legacyEstimationFlag, 
@@ -37,35 +59,15 @@ barplot(Donnes_China_M_France_2001_2020$primaryValue,
 # Mettre les légendes à la même taille et mettre des couleurs harmonieuses 
 #utiliser ggplot2 
 
-###############################################################################################
-###### Ajouter l'année 2002 aux imports de la Chine 
-nouvelle_ligne <- c("2002",156, "China","M",251,"France","H","","FALSE","", "","" , 0, "","" )
-tableau <- rbind(Donnes_China_M_France_2001_2020, nouvelle_ligne)
 
 ################################################################################################
 #### Création d'un nouveau graphique avec les imports et exports
 
-# chargement package
-library(ggplot2)
-library(dplyr)
-library(hrbrthemes)
 
-# Création du data frame
-time <- Donnes_France_X_Chine_2001_2020$Year
-valeurs_imports_chine <- tableau$primaryValue
-valeurs_exports_france <- Donnes_France_X_Chine_2001_2020$legacyEstimationFlag
-# 
-compil_donnees <- data.frame(time, valeurs_imports_chine, valeurs_exports_france)
-# A refaire, les chiffres sont dans le mauvais ordre
 
-# Conversion de la colonne 'temps' en format Date
-compil_donnees$time <- as.Date(compli_donnees$time)
 
-# Créer le graphique barplot
-#ggplot(data, aes(temps, fill = factor(variable))) +
-#  geom_bar(position = "dodge", stat = "identity") +
-#  labs(x = "Temps", y = "Valeurs", fill = "Catégorie") +
-#  ggtitle("Comparaison de deux catégories en fonction du temps")
+
+
 
 #####################################################
 ####Jointure de table 
