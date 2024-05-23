@@ -20,26 +20,68 @@ str(Donnes_France_X_Chine_2001_2020)
 str(Donnes_China_M_France_2001_2020)
 # primaryValue est num 
 # Mais il manque 2002 
-
+Donnes_China_M_France_2001_2020$Year <- as.factor(Donnes_China_M_France_2001_2020$Year)
+str(Donnes_China_M_France_2001_2020)
+#Les annees sont des factors 
 
 ###############################################
 # PB : il manque une annee 2002 pour les donnes vennant de la chine 
 # Solution : ajouter une ligne avec juste l'année 2002 pour la colonne Année mais il faut que les données soit quand même en num 
 
 ###### Ajouter l'année 2002 aux imports de la Chine 
-Ligne_2002 <- c("2002",156, "China","M",251,"France","H","","FALSE","", "","" , 0, "","" )
-Donnes_China_M_France_2001_2020_av2002 <- rbind(Donnes_China_M_France_2001_2020, Ligne_2002)
+#Ligne_2002 <- c("2002",156, "China","M",251,"France","H","","FALSE","", "","" , 0, "","" )
+#Donnes_China_M_France_2001_2020_av2002 <- rbind(Donnes_China_M_France_2001_2020, Ligne_2002)
+#L'ajout de la ligne est nullos parce qu'elle est que en chr 
+
+# Nouvelle tentative
+#Donnes_China_M_France_2001_2020_av2002 <- rbind(Donnes_China_M_France_2001_2020, c(2002,156, "China","M",251,"France","H","","FALSE","", "","" , 0, "","" ))
+#str(Donnes_China_M_France_2001_2020_av2002)
+#Toujours en chr 
+
+# Ajouter une nouvelle ligne avec un élément de type factor
+Ligne_2002_V2 <- data.frame(Year = factor("2002"),
+                            reporterCode = 156,
+                            reporterName = "China",
+                            flowCode = "M",
+                            partenerCode = 251,
+                            partenerName = "France",
+                            classificationCode = "H",
+                            cifValue = 0,
+                            fobValue = "FALSE",
+                            primaryValue = 0,
+                            legacyEstimationFlag = 0, 
+                            isReported = 0,
+                            isAgregate = 0,
+                            NA...14 = "FALSE",
+                            NA...15 = "FALSE")
+
+Donnes_China_M_France_2001_2020_av2002_V3 <- rbind(Donnes_China_M_France_2001_2020_av2002, Ligne_2002_V2)
+library(dplyr)
+
+Donnes_China_M_France_2001_2020_av2002_V3 <- bind_rows(Donnes_China_M_France_2001_2020_av2002, Ligne_2002_V2)
+#Je peux pas combine parce que qu'il y a un character et un douvble pour la colonne reporerCode
+str(Donnes_China_M_France_2001_2020_av2002_V3)
 
 ###### Ordonner et bien vérifier que les données monétaires soient en num et les années en factor ? 
-Donnes_China_M_France_2001_2020_av2002 <- is.factor( Donnes_China_M_France_2001_2020_av2002$Year)
+as.factor( Donnes_China_M_France_2001_2020_av2002$Year)
+as.numeric(Donnes_China_M_France_2001_2020_av2002$primaryValue)
+str(Donnes_China_M_France_2001_2020)
 str(Donnes_China_M_France_2001_2020_av2002)
 
-Index <- order(Donnes_China_M_France_2001_2020_av2002$Year)
+order(Donnes_China_M_France_2001_2020_av2002$Year)
+# order(Df$nom_colonne1, decreasing=FALSE)
+
+
+####################################################################
+
+#Index <- order(Donnes_China_M_France_2001_2020_av2002$Year)
 # c'est l'ordre dans laquelle il faut mettre les lignes du Data China av 2002
-Donnes_China_M_France_2001_2020_av2002 <- data [Index, ]
+#Donnes_China_M_France_2001_2020_av2002 <- data [Index, ]
 
 
 
+
+##############################################
 ##############################################
 #Création graphiques 
 plot(Donnes_France_X_Chine_2001_2020$legacyEstimationFlag)
