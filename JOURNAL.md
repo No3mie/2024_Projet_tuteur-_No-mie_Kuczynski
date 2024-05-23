@@ -92,6 +92,10 @@
 * Tentative de faire un graphique sur l'évolution des imports-exports de la Chine et la France
 
 #### 22/05 
-* M&M
-* reprises des données: création de nouvelles tables de données pour traiter les données 
+* rédaction M&M
+* reprises des données: création de nouvelles tables de données pour traiter les données
+
+#### 23/05
+* rédaction M&M 
+* travail sur le tableau de traitement de donnees 
 
