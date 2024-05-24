@@ -23,6 +23,22 @@ summary(Donnes_China_M_France_2001_2020)
 #legacyEstimationFlag et primaryvalue sont en int mais je peux quand même avec des médiannes, min, max,...
 # Mais il manque 2002 
 
+########################## Changer les colonnes avec l'argent dedans
+#Changer le noms des colonnes ciblées 
+library(dplyr)
+#elongation_long <- rename(elongation_long, zone = Zone, indiv = Indiv, year = Year, length = Length)
+Donnes_China_M_France_2001_2020 <- rename(Donnes_China_M_France_2001_2020, Value = primaryValue )
+Donnes_France_X_Chine_2001_2020 <- rename(Donnes_France_X_Chine_2001_2020,Value = legacyEstimationFlag )
+
+# Supprimer la colonne "colonne_a_supprimer"
+#df <- subset(df, select = -colonne_a_supprimer)
+Donnes_China_M_France_2001_2020 <- subset(Donnes_China_M_France_2001_2020, select = -legacyEstimationFlag)
+Donnes_France_X_Chine_2001_2020 <- subset(Donnes_France_X_Chine_2001_2020, select = -primaryValue)
+
+
+
+
+
 ###############################################
 ###### Transformet la colonne des années en facteur
 #Donnes_China_M_France_2001_2020$Year <- as.factor(Donnes_China_M_France_2001_2020$Year)
@@ -54,8 +70,7 @@ Ligne_2002_V2 <- data.frame(Year = as.integer("2002"),
                             classificationCode = "H",
                             cifValue = as.integer("0"),
                             fobValue = as.logical("FALSE") ,
-                            primaryValue = 0,
-                            legacyEstimationFlag = 0, 
+                            Value = 0,
                             isReported = 0,
                             isAgregate = as.integer("0"),
                             NA...14 = as.logical("FALSE"),
@@ -69,7 +84,7 @@ str(Donnes_China_M_France_2001_2020_av2002_V3)
 #int pour Year
 
 #Test barplot 
-barplot(Donnes_China_M_France_2001_2020_av2002_V3$primaryValue~Donnes_China_M_France_2001_2020_av2002_V3$Year)
+barplot(Donnes_China_M_France_2001_2020_av2002_V3$Value~Donnes_China_M_France_2001_2020_av2002_V3$Year)
 #test validé, on peut passer aux choses sérieuses
 
 ##############################################################################
@@ -108,24 +123,27 @@ Donnes_Fr_Ch_mix_2001_2020 <- bind_rows(Donnes_France_X_Chine_2001_2020, Donnes_
 # noramelement déjà ouvert 
 Donnes_Fr_Ch_mix_2001_2020_order <- arrange(Donnes_Fr_Ch_mix_2001_2020, Year)
 #c'est cool ça 
-#mais en fait il me faudrait une seule colonne pour les $ pour faire des graphs 
+#Value est en num
 
+##################################################
+#Exportation des données 
+write.table(Donnes_Fr_Ch_mix_2001_2020_order, "Data_Fr_Ch_combine_2001_2020.csv",sep = ";", row.names = FALSE)
+#Fichier csv bien créé 
 
 
 ###################################################################################################################################
-
-#####################################################################
-#####################################################################
+###################################################################################################################################
+###################################################################################################################################
 #Création graphiques 
-plot(Donnes_France_X_Chine_2001_2020$legacyEstimationFlag)
-barplot(Donnes_France_X_Chine_2001_2020$legacyEstimationFlag)
-barplot(Donnes_France_X_Chine_2001_2020$legacyEstimationFlag, 
+plot(Donnes_France_X_Chine_2001_2020$Value)
+barplot(Donnes_France_X_Chine_2001_2020$Value)
+barplot(Donnes_France_X_Chine_2001_2020$Value, 
         ylab = "Valeurs des exportations ($)", xlab = "Années",
         main = "Exportations du bois ronds de Chênes français vers la Chine", sub = "Entre 2001 et 2020",
         col= "bisque",col.main="tomato", col.lab="black", col.sub="slategrey",
         cex.main=1.1, cex.lab=0.9, cex.sub=1.1)
 
-barplot(Donnes_China_M_France_2001_2020$primaryValue, 
+barplot(Donnes_China_M_France_2001_2020$Value, 
         ylab = "Valeurs des importations ($)", xlab = "Années",
         main = "Importations du bois ronds de Chênes français vers la Chine", sub = "Entre 2001 et 2020",
         col= "lavender",   col.main="red", col.lab="blue", col.sub="black")
@@ -135,15 +153,7 @@ barplot(Donnes_China_M_France_2001_2020$primaryValue,
 #utiliser ggplot2 
 
 
-################################################################################################
-#### Création d'un nouveau graphique avec les imports et exports
-
-
-
-
-
-
-
+#################################################################################################################################
 ##############################################################################################
 ####Jointure de table 
 #library('dplyr')
