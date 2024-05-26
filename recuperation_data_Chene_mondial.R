@@ -97,6 +97,7 @@ names(Data_Monde_Oak_20) <- c("Year","reporterCode","reporterName","flowCode","p
 
 #################################################################################
 ##### Tri des données pour garder que ce qui concerne la France et la Chine #####
+#################################################################################
 
 #Mydata[which(Mydata$couleur_fav_simpl=="azur")
 #Data_FrCh_Oak_20 <- Data_Monde_Oak_20[which(Data_Monde_Oak_20)]
@@ -110,8 +111,9 @@ Data_FrX_Oak_20 <- subset(Data_Fr_Oak_20, flowCode == "X")
 Data_FrXCh_Oak_20 <- subset(Data_FrX_Oak_20,partenerName == "China")
 
 
-########################################################################
-########################## Export des données ##########################
+
+#################################################################################
+########################## Export des données ###################################
 #Exporter des données au format csv
 #write.table(Df, « Nom_du_fichier.csv »,sep = « ; », row.names = FALSE)
 #write.csv(nouveau_tableau, file = "nouveau_tableau.csv", row.names = FALSE)
@@ -130,3 +132,25 @@ Data_ChMFr_Oak_20 <- subset(Data_ChM_Oak_20,partenerName == "France")
 write.table(Data_ChMFr_Oak_20, "Donnes_China_M_France_2001_2020.csv",sep = ";", row.names = FALSE)
 
 #Prout 
+
+#################################################################################
+############################ PARTENAIRES DE LA CHINE ############################
+#################################################################################
+#Avoir un data frame avec que les partenaires commerciaux de la chine 
+
+Data_Ch_partenaires <- subset(Data_Monde_Oak_20, reporterName == "China")
+Data_Ch_partenaires <- subset(Data_Ch_partenaires, flowCode == "M")
+
+#Exportation des données
+write.table(Data_Ch_partenaires, "Donnes_China_partenaires.csv",sep = ";", row.names = FALSE)
+
+#################################################################################
+########################## PARTENAIRES DE LA FRANCE  ############################
+#################################################################################
+#Avoir un data frame avec que les partenaires commerciaux de la chine 
+
+Data_FR_partenaires <- subset(Data_Monde_Oak_20, reporterName == "France")
+Data_FR_partenaires <- subset(Data_FR_partenaires, flowCode == "X")
+
+#Exportation des données
+write.table(Data_FR_partenaires, "Donnes_France_partenaires.csv",sep = ";", row.names = FALSE)
