@@ -99,3 +99,10 @@
 * rédaction M&M 
 * travail sur le tableau de traitement de donnees 
 
+#### 24/05
+* rédaction M&M
+
+#### 27/05 
+* tableaux de donnes tous propres pour les graphiques
+* relecture de la bibliographie
+* rédaction Introduction
