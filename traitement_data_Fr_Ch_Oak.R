@@ -131,6 +131,43 @@ write.table(Donnes_Fr_Ch_mix_2001_2020_order, "Data_Fr_Ch_combine_2001_2020.csv"
 #Fichier csv bien créé 
 
 
+########################################################################################################################
+############################# TRAITEMENT DES DONNEES POUR LES PARTENAIRES ##############################################
+########################################################################################################################
+
+Donnes_China_partenaires <- read.csv("Donnes_China_partenaires.csv", sep = ";", stringsAsFactors = T)
+str(Donnes_China_partenaires)
+
+Donnes_France_partenaires <- read.csv("Donnes_France_partenaires.csv", sep = ";", stringsAsFactors = T)
+str(Donnes_France_partenaires)
+Donnes_France_partenaires$legacyEstimationFlag <- as.integer(Donnes_France_partenaires$legacyEstimationFlag)
+str(Donnes_France_partenaires)
+
+#Avoir un tableau avec chaque partenaires qui apparait une fois 
+#partenerName 
+#table(Donnes_China_partenaires$partenerName)
+#table(Donnes_France_partenaires$partenerName)
+
+#Donnees_Slovakie <-  subset(Donnes_China_partenaires, partenerName == "USA")
+
+library(dplyr)
+#summarise(Donnes_China_partenaires, partenerName == "Canada")
+
+Partenaires_Chine <- aggregate(Donnes_China_partenaires$primaryValue, list(Donnes_China_partenaires$partenerName),FUN= sum)
+
+Partenaires_France <- aggregate(Donnes_France_partenaires$legacyEstimationFlag, list(Donnes_France_partenaires$partenerName),FUN= sum)
+str(Partenaires_France)
+
+################################################
+#Exportation des données 
+write.table(Partenaires_France, "Partenaires_France.csv",sep = ";", row.names = FALSE)
+#Fichier csv bien créé 
+
+#Exportation des données 
+write.table(Partenaires_Chine, "Partenaires_Chine.csv",sep = ";", row.names = FALSE)
+#Fichier csv bien créé 
+
+
 ###################################################################################################################################
 ###################################################################################################################################
 ###################################################################################################################################
@@ -154,7 +191,7 @@ barplot(Donnes_China_M_France_2001_2020$Value,
 
 
 #################################################################################################################################
-##############################################################################################
+#################################################################################################################################
 ####Jointure de table 
 #library('dplyr')
 
