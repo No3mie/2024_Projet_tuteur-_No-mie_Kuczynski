@@ -19,17 +19,13 @@ Partenaires_Chine <- read.csv("Partenaires_Chine.csv", sep = ";", stringsAsFacto
 # library
 library(ggplot2)
 
-# create a dataset
-specie <- c(rep("sorgho" , 3) , rep("poacee" , 3) , rep("banana" , 3) , rep("triticum" , 3) )
-condition <- rep(c("normal" , "stress" , "Nitrogen") , 4)
-value <- abs(rnorm(12 , 0 , 15))
-data <- data.frame(specie,condition,value)
-
-# Grouped
-ggplot(data, aes(fill=condition, y=value, x=specie)) + 
-  geom_bar(position="dodge", stat="identity")
-
-
+ggplot(Data_Fr_Ch_combine_2001_2020, aes(fill=partenerName, y=Value, x=Year)) + 
+  geom_bar(position="dodge", stat="identity")+
+  scale_fill_manual(values = c("tomato", "cornflowerblue"))+
+  ggtitle(
+    "Montant des flux commerciaux entre la Chine et la France",
+    subtitle = "Entre 2001 et 2020"
+  ) 
 
 
 
@@ -37,33 +33,68 @@ ggplot(data, aes(fill=condition, y=value, x=specie)) +
 # Création d'un graphique des proportions des pays qui exportent à la chine 
 
 # load library
-library(ggplot2)
+#library(ggplot2)
 
 # Create test data.
-data <- data.frame(
-  category=c("A", "B", "C"),
-  count=c(10, 60, 30)
-)
+# data <- data.frame(category=c("A", "B", "C"),count=c(10, 60, 30))
 
 # Compute percentages
-data$fraction = data$count / sum(data$count)
+# data$fraction = data$count / sum(data$count)
+Partenaires_Chine$fraction <- Partenaires_Chine$x / sum(Partenaires_Chine$x)
 
 # Compute the cumulative percentages (top of each rectangle)
-data$ymax = cumsum(data$fraction)
+# data$ymax = cumsum(data$fraction)
+Partenaires_Chine$ymax <- cumsum(Partenaires_Chine$fraction)
 
 # Compute the bottom of each rectangle
-data$ymin = c(0, head(data$ymax, n=-1))
+# data$ymin = c(0, head(data$ymax, n=-1))
+Partenaires_Chine$ymin = c(0, head(Partenaires_Chine$ymax,n=-1))
 
 # Make the plot
-ggplot(data, aes(ymax=ymax, ymin=ymin, xmax=4, xmin=3, fill=category)) +
-  geom_rect() +
-  coord_polar(theta="y") + # Try to remove that to understand how the chart is built initially
-  xlim(c(2, 4)) # Try to remove that to see how to make a pie chart
+#ggplot(data, aes(ymax=ymax, ymin=ymin, xmax=4, xmin=3, fill=category)) +
+ # geom_rect() +
+#  coord_polar(theta="y") + # Try to remove that to understand how the chart is built initially
+ # xlim(c(2, 4)) # Try to remove that to see how to make a pie chart
 
+#suppression de la ligne World 
+Partenaires_Chine <- Partenaires_Chine [-61,]
+
+ggplot(Partenaires_Chine, aes(ymax=ymax, ymin=ymin, xmax=1, xmin=3, fill=Group.1)) +
+  geom_rect() +
+  coord_polar(theta="y") 
+  
+# Faire un tri sur les données ?
+# Ou réussir à changer les couleurs que pour la France 
 
 
 
 #Création d'un graphique des proportions des pays à qui la France exporte
 
+#library(ggplot2)
 
+# Compute percentages
+Partenaires_France$fraction <- Partenaires_France$x / sum(Partenaires_France$x)
+
+# Compute the cumulative percentages (top of each rectangle)
+# data$ymax = cumsum(data$fraction)
+Partenaires_France$ymax <- cumsum(Partenaires_France$fraction)
+
+# Compute the bottom of each rectangle
+# data$ymin = c(0, head(data$ymax, n=-1))
+Partenaires_France$ymin = c(0, head(Partenaires_France$ymax,n=-1))
+
+# Make the plot
+#ggplot(data, aes(ymax=ymax, ymin=ymin, xmax=4, xmin=3, fill=category)) +
+# geom_rect() +
+#  coord_polar(theta="y") + # Try to remove that to understand how the chart is built initially
+# xlim(c(2, 4)) # Try to remove that to see how to make a pie chart
+
+#suppression de la ligne World 
+Partenaires_France <- Partenaires_France [-75,]
+
+ggplot(Partenaires_France, aes(ymax=ymax, ymin=ymin, xmax=1, xmin=3, fill=Group.1)) +
+  geom_rect() +
+  coord_polar(theta="y") 
+
+# Faire un tri sur les données ? 
 
