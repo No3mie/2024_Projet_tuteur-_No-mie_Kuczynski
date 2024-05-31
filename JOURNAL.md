@@ -106,3 +106,18 @@
 * tableaux de donnes tous propres pour les graphiques
 * relecture de la bibliographie
 * rédaction Introduction
+
+#### 28/05
+* correction du M&M
+* citation de la biblio pour l'intro
+* rédaction introduction
+
+#### 29/05 
+* correction du M&M
+* citation de la biblio pour l'intro
+* rédaction introduction
+  
+#### 30/05 
+* correction du M&M
+* citation de la biblio pour l'intro
+* rédaction introduction
