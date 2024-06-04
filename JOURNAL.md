@@ -121,3 +121,15 @@
 * correction du M&M
 * citation de la biblio pour l'intro
 * rédaction introduction
+
+#### 31/05
+* rédaction de l'introduction
+
+#### 03/06
+* travail sur les graphiques
+* modifications Introduction
+
+#### 04/06 
+* travail sur les graphiques
+* écriture résultats
+* modification introduction
