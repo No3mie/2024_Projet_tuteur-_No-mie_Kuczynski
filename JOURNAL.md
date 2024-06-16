@@ -133,3 +133,59 @@
 * travail sur les graphiques
 * écriture résultats
 * modification introduction
+
+#### 04/06 
+* travail sur les graphiques
+* écriture résultats
+* modification introduction
+
+#### 05/06 
+* travail sur les graphiques
+* travail sur les chiffres
+* rédaction résultats
+
+#### 06/06 
+* rédaction résultats
+* modification introduction
+
+#### 07/06 
+* recherhce bibliographie
+* rédaction résultats
+* rédaction discussion
+
+#### 10/06 
+* modification résultats
+* modification introduction
+* modification M&M
+* rédaction résultats
+
+#### 11/06 
+* modification résultats
+* modification introduction
+* modification M&M
+* modifcation résultats
+* bibliopgraphie
+
+#### 12/06 
+* modification résultats
+* modification introduction
+* modification M&M
+* rédaction résultats
+* bibliopgraphie
+* page de garde
+* sommaire
+
+#### 13/06 
+* modification résultats
+* modification introduction
+* modification M&M
+* modification résultats
+* bibliopgraphie
+* résumé
+
+#### 14/06 
+* modification résultats
+* modification introduction
+* modification M&M
+* modification résultats
+* relecture
