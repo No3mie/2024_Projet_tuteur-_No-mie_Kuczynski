@@ -16,19 +16,26 @@ str(Data_Fr_Ch_combine_2001_2020)
 Selection_Partenaires_France <- read.csv("Selection_Partenaires_France.csv", sep = ";", stringsAsFactors = T)
 
 Selection_Partenaires_Chine <- read.csv("Selection_Partenaires_Chine.csv", sep = ";", stringsAsFactors = T)
+
+Selection_Partenaires_Chine_2 <- read.csv("Selection_Partenaires_Chine_2.csv", sep = ";", stringsAsFactors = T)
 #######################################################################################################################################
 # Création d'un graphique avec la chronologie des imports et exports ($)
 
 # library
 library(ggplot2)
 
-ggplot(Data_Fr_Ch_combine_2001_2020, aes(fill=partenerName, y=Value, x=Year)) + 
+ggplot(Data_Fr_Ch_combine_2001_2020, aes(fill=reporterName, y=Value, x=Year)) + 
   geom_bar(position="dodge", stat="identity")+
-  scale_fill_manual(values = c("tomato", "cornflowerblue"))+
-  ggtitle(
-    "Montant des flux commerciaux entre la Chine et la France",
-    subtitle = "Entre 2001 et 2020"
-  ) 
+  scale_fill_manual(values = c("tomato", "cornflowerblue"))+ 
+  labs(#title = "Line chart with error envelope",
+       x = "Années",
+       y = "Valeurs des flux commerciaux (US$)",
+       fill = "Pays raporteur") 
+  #xlab("Années") + 
+  #ylab("Valeurs des flux commerciaux ($)")
+  #ggtitle(
+   # "Montant des flux commerciaux entre la Chine et la France",
+    #subtitle = "Entre 2001 et 2020"  ) 
 
 
 ################################################################################################################################
@@ -45,13 +52,20 @@ ggplot(Data_Fr_Ch_combine_2001_2020, aes(fill=partenerName, y=Value, x=Year)) +
 #  ylab("Scaled Temperature")
 library(ggplot2)
 
+
+#Partenaires de la France
+
+par(mfrow = c(3, 2))
+
+
 ggplot(data=Selection_Partenaires_France, aes(x=Year, y=legacyEstimationFlag, fill=partenerName, linetype=partenerName)) + 
   geom_line() + 
   geom_ribbon(aes(ymin = legacyEstimationFlag - sd(legacyEstimationFlag), 
                   ymax = legacyEstimationFlag + sd(legacyEstimationFlag)), 
               alpha=0.5) + 
-  xlab("pouet") + 
-  ylab("Scaled Temperature")
+  labs(x="Années",
+       y="Valeurs des exports (US$)")+
+  facet_wrap(~partenerName)
 
 #Deuxième Version 
 
@@ -59,10 +73,11 @@ ggplot(Selection_Partenaires_France, aes(x = Year, y = legacyEstimationFlag, gro
   geom_line() +
   geom_ribbon(aes(ymin = legacyEstimationFlag - sd(legacyEstimationFlag), 
                   ymax = legacyEstimationFlag + sd(legacyEstimationFlag)), 
-              alpha = 0.2) +
-  labs(title = "Line chart with error envelope",
-       x = "Year",
-       y = "Legacy Estimation Flag") +
+              alpha = 0.1) +
+  labs(#title = "Line chart with error envelope",
+    color = "Pays partenaires",
+       x = "Années",
+       y = "Valeurs des exports ($)") +
   theme_minimal()
 
 
@@ -73,7 +88,48 @@ ggplot(data=Selection_Partenaires_Chine, aes(x=Year, y=primaryValue, fill=parten
                   ymax = primaryValue + sd(primaryValue)), 
               alpha=0.5) + 
   xlab("Années") + 
-  ylab("Valeurs des exports")
+  ylab("Valeurs des imports (US$)")+
+  facet_wrap(~partenerName)
+
+#Deuxième Version 
+
+ggplot(Selection_Partenaires_Chine, aes(x = Year, y = primaryValue, group = partenerName, color = partenerName)) +
+  geom_line() +
+  geom_ribbon(aes(ymin = primaryValue - sd(primaryValue), 
+                  ymax = primaryValue + sd(primaryValue)), 
+              alpha = 0.2) +
+  labs(x = "Années",
+       y = "Valeurs des imports ($)",
+       color = "Pays partenaires") +
+  theme_minimal()
+
+
+# Sans la Belgique 
+ggplot(data=Selection_Partenaires_Chine_2, aes(x=Year, y=primaryValue, fill=partenerName, linetype=partenerName)) + 
+  geom_line() + 
+  geom_ribbon(aes(ymin = primaryValue - sd(primaryValue), 
+                  ymax = primaryValue + sd(primaryValue)), 
+              alpha=0.5) + 
+  xlab("Années") + 
+  ylab("Valeurs des imports ($)")
+
+
+ggplot(Selection_Partenaires_Chine_2, aes(x = Year, y = primaryValue, group = partenerName, color = partenerName)) +
+  geom_line() +
+  geom_ribbon(aes(ymin = primaryValue - sd(primaryValue), 
+                  ymax = primaryValue + sd(primaryValue)), 
+              alpha = 0.1) +
+  labs(x = "Années",
+       y = "Valeurs des imports ($)",
+       color = "Noms des partenaires") +
+  theme_minimal()
+
+ggplot(Selection_Partenaires_Chine_2, aes(x = Year, y = primaryValue, group = partenerName, color = partenerName)) +
+  geom_line() +
+  labs(x = "Années",
+       y = "Valeurs des imports ($)",
+       color = "Noms des partenaires") +
+  theme_minimal()
 
 ####################################################################################################################################
 #######################################################################################################################################
